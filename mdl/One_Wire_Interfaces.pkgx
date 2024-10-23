@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Top_Level_Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>One_Wire_Interfaces</Name>
+  <Identifier>7505331c-ff37-4dc2-ae08-90d7c0a57de8</Identifier>
+  <Description>Gathers software elements allowing to manage the 1-Wire communication protocol.</Description>
+  <Packages />
+  <Types>
+    <Array_Type>
+      <Name>T_One_Wire_Device_Address</Name>
+      <Identifier>7bbb6c3b-4c87-4703-a133-f6b287139fbc</Identifier>
+      <Description>Allows to model a data representing the address of a OneWire bus slave device.
+The first byte is the 1-Wire device family code.
+The next 6 bytes (48 bits) are a unique serial number.
+The last byte is a CRC (=X^8+X^5+X^4+1) calculated from the first 56 bits.</Description>
+      <First_Dimension>
+        <Text>8</Text>
+      </First_Dimension>
+      <Second_Dimension>
+        <Text>1</Text>
+      </Second_Dimension>
+      <Third_Dimension>
+        <Text>1</Text>
+      </Third_Dimension>
+      <Base_Type_Ref>97d8da02-29ed-4ba2-9d78-07fff6147434</Base_Type_Ref>
+    </Array_Type>
+    <Array_Type>
+      <Name>T_One_Wire_Message</Name>
+      <Identifier>0b4cfce7-356b-4235-b6c1-2d4c61509bd6</Identifier>
+      <Description>Allows to model a data that represent a message transmitted by the 1-Wire protocol.</Description>
+      <First_Dimension>
+        <Text>1..*</Text>
+      </First_Dimension>
+      <Second_Dimension>
+        <Text>1</Text>
+      </Second_Dimension>
+      <Third_Dimension>
+        <Text>1</Text>
+      </Third_Dimension>
+      <Base_Type_Ref>97d8da02-29ed-4ba2-9d78-07fff6147434</Base_Type_Ref>
+    </Array_Type>
+  </Types>
+  <Interfaces>
+    <Client_Server_Interface>
+      <Name>One_Wire_Protocol</Name>
+      <Identifier>f99c8ff7-b5bd-4984-b1a4-ae183a460401</Identifier>
+      <Description>This interface gathers operations allowing to execute basic sequences of the 1-Wire communication protocol.
+Every operation first performs a reset, then selects the slave and finally sends the command.</Description>
+      <Operations>
+        <Client_Server_Operation>
+          <Name>Send_Simple_Command</Name>
+          <Identifier>efe87321-b5a8-444b-980e-e1d52fdca452</Identifier>
+          <Description>Allows to send a command to a device.</Description>
+          <Parameters>
+            <Operation_Parameter>
+              <Name>slave_address</Name>
+              <Identifier>097b562f-d8d7-4d7f-af5a-9f570ce9b824</Identifier>
+              <Description>Adress of the device that shall receive the command.</Description>
+              <Referenced_Type_Id>7bbb6c3b-4c87-4703-a133-f6b287139fbc</Referenced_Type_Id>
+              <Direction>INPUT</Direction>
+            </Operation_Parameter>
+            <Operation_Parameter>
+              <Name>command</Name>
+              <Identifier>39ac42be-8ae7-4a1d-a49f-15829d46dd74</Identifier>
+              <Description>Command sent to the device.</Description>
+              <Referenced_Type_Id>97d8da02-29ed-4ba2-9d78-07fff6147434</Referenced_Type_Id>
+              <Direction>INPUT</Direction>
+            </Operation_Parameter>
+          </Parameters>
+        </Client_Server_Operation>
+        <Client_Server_Operation>
+          <Name>Send_Write_Command</Name>
+          <Identifier>60845202-69da-43be-8cdb-061850583f1b</Identifier>
+          <Description>Allows to write a message to a device.</Description>
+          <Parameters>
+            <Operation_Parameter>
+              <Name>slave_address</Name>
+              <Identifier>77ab919f-2249-45f2-b3cf-9839c0a1c77b</Identifier>
+              <Description>Adress of the device that shall receive the command.</Description>
+              <Referenced_Type_Id>7bbb6c3b-4c87-4703-a133-f6b287139fbc</Referenced_Type_Id>
+              <Direction>INPUT</Direction>
+            </Operation_Parameter>
+            <Operation_Parameter>
+              <Name>command</Name>
+              <Identifier>c792aea2-3a15-42f7-93a0-46802b35a2c4</Identifier>
+              <Description>Write command sent to the device.</Description>
+              <Referenced_Type_Id>97d8da02-29ed-4ba2-9d78-07fff6147434</Referenced_Type_Id>
+              <Direction>INPUT</Direction>
+            </Operation_Parameter>
+            <Operation_Parameter>
+              <Name>message</Name>
+              <Identifier>cdbac78c-8823-4cb3-9bbc-23290f9ec162</Identifier>
+              <Description>Message sent to the device.</Description>
+              <Referenced_Type_Id>0b4cfce7-356b-4235-b6c1-2d4c61509bd6</Referenced_Type_Id>
+              <Direction>INPUT</Direction>
+            </Operation_Parameter>
+          </Parameters>
+        </Client_Server_Operation>
+        <Client_Server_Operation>
+          <Name>Send_Read_Command</Name>
+          <Identifier>30e96e1b-ec82-4709-b661-6b48b3865d6d</Identifier>
+          <Description>Allows to read a message from a device.</Description>
+          <Parameters>
+            <Operation_Parameter>
+              <Name>slave_address</Name>
+              <Identifier>1d3a9966-cfa9-40ba-ae0b-d5daa1f8a9a2</Identifier>
+              <Description>Adress of the device that shall receive the command.</Description>
+              <Referenced_Type_Id>7bbb6c3b-4c87-4703-a133-f6b287139fbc</Referenced_Type_Id>
+              <Direction>INPUT</Direction>
+            </Operation_Parameter>
+            <Operation_Parameter>
+              <Name>command</Name>
+              <Identifier>07517203-66d2-4a75-a65d-8cbc09510fff</Identifier>
+              <Description>Read command sent to the device.</Description>
+              <Referenced_Type_Id>97d8da02-29ed-4ba2-9d78-07fff6147434</Referenced_Type_Id>
+              <Direction>INPUT</Direction>
+            </Operation_Parameter>
+            <Operation_Parameter>
+              <Name>message</Name>
+              <Identifier>0c0e0040-b183-4935-9499-e5a11dd20fd4</Identifier>
+              <Description>Message received from the device.</Description>
+              <Referenced_Type_Id>0b4cfce7-356b-4235-b6c1-2d4c61509bd6</Referenced_Type_Id>
+              <Direction>OUTPUT</Direction>
+            </Operation_Parameter>
+          </Parameters>
+        </Client_Server_Operation>
+      </Operations>
+    </Client_Server_Interface>
+  </Interfaces>
+  <Component_Types />
+  <Compositions />
+</Top_Level_Package>

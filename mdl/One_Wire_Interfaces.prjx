@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Software_Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>One_Wire_Interfaces</Name>
+  <Identifier>bb30fd94-d576-4969-9e18-fb1e3d877991</Identifier>
+  <Description>One_Wire_Interfaces project</Description>
+  <Packages_References>
+    <Package_Reference>
+      <Last_Known_Name>One_Wire_Interfaces</Last_Known_Name>
+      <Relative_Path>One_Wire_Interfaces.pkgx</Relative_Path>
+      <Is_Writable>true</Is_Writable>
+    </Package_Reference>
+  </Packages_References>
+</Software_Project>
