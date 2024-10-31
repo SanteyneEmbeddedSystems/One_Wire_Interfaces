@@ -7,7 +7,7 @@
 typedef struct {
 
     void (*Send_Simple_Command) ( 
-		T_One_Wire_Device_Address* slave_address,
+		const T_One_Wire_Device_Address* slave_address,
 		uint8_t command );
 	
     void (*Send_Write_Command) (
@@ -17,7 +17,7 @@ typedef struct {
         uint8_t message_length );
 
     void (*Send_Read_Command) (
-		T_One_Wire_Device_Address* slave_address,
+		const T_One_Wire_Device_Address* slave_address,
 		uint8_t command,
 		uint8_t message[],
         uint8_t message_length );
